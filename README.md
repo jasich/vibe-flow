@@ -9,7 +9,7 @@ A structured product development workflow for Claude Code. Takes you from idea t
         ↓
 /research <feature>   Technical research & gap analysis
         ↓
-/plan <feature>       Phased implementation plan
+/phase <feature>      Phased implementation plan
         ↓
 /implement <feature>  Execute next incomplete phase
         ↓
@@ -30,7 +30,7 @@ cd vibe-flow
 |---------|---------|
 | `/prd <name>` | Interactive interview to create PRD.md |
 | `/research <name>` | Analyze codebase, identify gaps, create RESEARCH.md |
-| `/plan <name>` | Build phased PLAN.md with tasks and acceptance criteria |
+| `/phase <name>` | Build phased PLAN.md with tasks and acceptance criteria |
 | `/implement <name>` | Execute next incomplete phase with review cycles |
 | `/continue <name>` | Resume interrupted implementation |
 
@@ -69,7 +69,7 @@ Default: `.plans/` (project-local, git-trackable)
 
 # Claude analyzes codebase, creates RESEARCH.md
 
-> /plan user-notifications
+> /phase user-notifications
 
 # Claude proposes phases, you approve each one, creates PLAN.md
 

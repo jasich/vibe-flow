@@ -1,5 +1,5 @@
 ---
-name: plan
+name: phase
 description: Phased implementation planning - creates PLAN.md with tasks and acceptance criteria
 argument-hint: <feature-name>
 user-invocable: true
