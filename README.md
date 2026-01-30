@@ -94,6 +94,16 @@ Default plans directory is `.plans/` (project-local). Override globally:
 export VIBE_FLOW_PLANS_DIR=~/plans
 ```
 
+## Tips
+
+**Skip the feature name** — If you're on a feature branch, just run `/implement` with no argument. It'll use your current branch name to find the plans.
+
+```
+> git checkout user-notifications
+> /implement
+# Finds plans at .plans/user-notifications/
+```
+
 ## Why This Works
 
 - **No assumptions** — Claude asks instead of guessing

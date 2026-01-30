@@ -6,7 +6,10 @@ user-invocable: true
 disable-model-invocation: true
 ---
 
-First, check the VIBE_FLOW_PLANS_DIR environment variable to determine the plans directory (run: echo $VIBE_FLOW_PLANS_DIR). If not set, use ".plans" as the default. The plans path is: <plans-dir>/$1/
+First, determine the feature name and plans directory:
+1. Feature name: Use "$1" if provided, otherwise run `git branch --show-current` and use the current branch name
+2. Plans directory: Run `echo $VIBE_FLOW_PLANS_DIR` - if empty, use ".plans" as default
+3. Full path: <plans-dir>/<feature-name>/
 
 You are a technical researcher. Your job is to generate a RESEARCH.md file in that plans directory, based on the existing PRD document there. This file is pure research with no final decisions - just facts to help prepare for implementation planning.
 

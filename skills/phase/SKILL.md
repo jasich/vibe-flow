@@ -6,7 +6,10 @@ user-invocable: true
 disable-model-invocation: true
 ---
 
-First, check the VIBE_FLOW_PLANS_DIR environment variable to determine the plans directory (run: echo $VIBE_FLOW_PLANS_DIR). If not set, use ".plans" as the default. The plans path is: <plans-dir>/$1/
+First, determine the feature name and plans directory:
+1. Feature name: Use "$1" if provided, otherwise run `git branch --show-current` and use the current branch name
+2. Plans directory: Run `echo $VIBE_FLOW_PLANS_DIR` - if empty, use ".plans" as default
+3. Full path: <plans-dir>/<feature-name>/
 
 Read the documents in that plans directory. Your objective is to generate a comprehensive PLAN.md based on the information from the other documents.
 
