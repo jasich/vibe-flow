@@ -1,20 +1,26 @@
 # vibe-flow
 
-A structured product development workflow for Claude Code. Takes you from idea to implementation through PRD → Research → Plan → Implement.
+**Stop vibe coding. Start vibe *shipping*.**
 
-## Workflow
+A skills pack for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) that transforms chaotic AI-assisted development into a structured, repeatable workflow. Go from idea to deployed feature without losing context, scope, or your mind.
+
+## The Problem
+
+You start building a feature with Claude. Three hours later you're debugging something unrelated, the original requirements are forgotten, and you have 47 uncommitted files. Sound familiar?
+
+## The Solution
+
+vibe-flow enforces a proven product development workflow:
 
 ```
-/prd <feature>        Create PRD through interview
-        ↓
-/research <feature>   Technical research & gap analysis
-        ↓
-/phase <feature>      Phased implementation plan
-        ↓
-/implement <feature>  Execute next incomplete phase
-        ↓
-/continue <feature>   Resume interrupted work
+/prd        →  Interview-driven requirements (you're the product owner)
+/research   →  Technical analysis before coding starts
+/phase      →  Phased plan with tasks and acceptance criteria
+/implement  →  Execute one phase at a time with review cycles
+/continue   →  Pick up exactly where you left off
 ```
+
+Each step creates artifacts in `.plans/<feature>/` that persist across sessions. No more "what was I building again?"
 
 ## Installation
 
@@ -24,63 +30,77 @@ cd vibe-flow
 ./install.sh
 ```
 
-## Commands
+Skills are symlinked to `~/.claude/skills/` — available in every project.
 
-| Command | Purpose |
-|---------|---------|
-| `/prd <name>` | Interactive interview to create PRD.md |
-| `/research <name>` | Analyze codebase, identify gaps, create RESEARCH.md |
-| `/phase <name>` | Build phased PLAN.md with tasks and acceptance criteria |
-| `/implement <name>` | Execute next incomplete phase with review cycles |
-| `/continue <name>` | Resume interrupted implementation |
+## The Workflow
 
-## How It Works
-
-Each command reads from and writes to a plans directory:
+### 1. Define what you're building
 
 ```
-.plans/<feature-name>/
-├── PRD.md       # Product requirements
-├── RESEARCH.md  # Technical analysis
-└── PLAN.md      # Implementation phases with checkboxes
+> /prd user-notifications
 ```
 
-The workflow is collaborative - each step involves interviewing you to understand requirements before writing anything.
+Claude interviews you like a product manager. No assumptions — just questions until the PRD is complete. You approve each section before it's written.
+
+### 2. Research before you code
+
+```
+> /research user-notifications
+```
+
+Claude analyzes your codebase, identifies existing patterns to reuse, finds gaps, and assesses risks. Pure research — no decisions yet.
+
+### 3. Plan in phases
+
+```
+> /phase user-notifications
+```
+
+Claude proposes implementation phases. You adjust scope, ordering, and priorities. Each phase gets acceptance criteria and a task checklist.
+
+### 4. Build incrementally
+
+```
+> /implement user-notifications
+```
+
+Claude shows you the phase, confirms you're ready, then implements. After each phase: review, test suggestions, and commit prompt. Then onto the next phase.
+
+### 5. Resume anytime
+
+```
+> /continue user-notifications
+```
+
+Context window expired? Claude analyzes uncommitted changes, figures out where you stopped, and picks up seamlessly.
+
+## What Gets Created
+
+```
+.plans/user-notifications/
+├── PRD.md       # What you're building and why
+├── RESEARCH.md  # Technical analysis and decisions
+└── PLAN.md      # Phases with checkboxes (tracks progress)
+```
+
+Commit these with your code. They're documentation *and* resumable state.
 
 ## Configuration
 
-Override the default plans directory with:
+Default plans directory is `.plans/` (project-local). Override globally:
 
 ```bash
-export VIBE_FLOW_PLANS_DIR="~/my-plans"
+# In your .zshrc or .bashrc
+export VIBE_FLOW_PLANS_DIR=~/plans
 ```
 
-Default: `.plans/` (project-local, git-trackable)
+## Why This Works
 
-## Example Session
-
-```bash
-# Start with a feature idea
-> /prd user-notifications
-
-# Claude interviews you, creates .plans/user-notifications/PRD.md
-
-> /research user-notifications
-
-# Claude analyzes codebase, creates RESEARCH.md
-
-> /phase user-notifications
-
-# Claude proposes phases, you approve each one, creates PLAN.md
-
-> /implement user-notifications
-
-# Claude implements Phase 1, asks for review, commits when approved
-
-> /implement user-notifications
-
-# Continues with Phase 2...
-```
+- **No assumptions** — Claude asks instead of guessing
+- **Phased delivery** — Ship working increments, not half-finished features
+- **Review cycles** — You approve before Claude moves on
+- **Persistent context** — Plans survive session boundaries
+- **Version controlled** — Track decisions alongside code
 
 ## License
 
