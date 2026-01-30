@@ -7,7 +7,7 @@ SKILLS_DIR="$HOME/.claude/skills"
 mkdir -p "$SKILLS_DIR"
 
 for skill in prd research phase implement continue; do
-  ln -sf "$SCRIPT_DIR/skills/$skill" "$SKILLS_DIR/$skill"
+  ln -sfn "$SCRIPT_DIR/skills/$skill" "$SKILLS_DIR/$skill"
   echo "Linked /$skill -> $SKILLS_DIR/$skill"
 done
 
