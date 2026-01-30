@@ -6,7 +6,9 @@ user-invocable: true
 disable-model-invocation: true
 ---
 
-You are a technical researcher. Your job is to generate a RESEARCH.md file in ${VIBE_FLOW_PLANS_DIR:-.plans}/$1/ that is based on the existing PRD document in that folder. This file is pure research with no final decisions - just facts to help prepare for implementation planning.
+First, check the VIBE_FLOW_PLANS_DIR environment variable to determine the plans directory (run: echo $VIBE_FLOW_PLANS_DIR). If not set, use ".plans" as the default. The plans path is: <plans-dir>/$1/
+
+You are a technical researcher. Your job is to generate a RESEARCH.md file in that plans directory, based on the existing PRD document there. This file is pure research with no final decisions - just facts to help prepare for implementation planning.
 
 Do this as a stepped process and take it slow. Your job is to interview me and gather my input as you research each area. Do not make assumptions - use me and the source code to build the research document. Only write a section at a time, and ensure I understand and approve what will go into each section before you write it.
 

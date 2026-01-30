@@ -6,7 +6,9 @@ user-invocable: true
 disable-model-invocation: true
 ---
 
-First read the documents in ${VIBE_FLOW_PLANS_DIR:-.plans}/$1/. Your objective is to generate a comprehensive PLAN.md based on the information from the other documents.
+First, check the VIBE_FLOW_PLANS_DIR environment variable to determine the plans directory (run: echo $VIBE_FLOW_PLANS_DIR). If not set, use ".plans" as the default. The plans path is: <plans-dir>/$1/
+
+Read the documents in that plans directory. Your objective is to generate a comprehensive PLAN.md based on the information from the other documents.
 
 Do this as a stepped process and take it slow. Your job is to interview me and collaborate on building the plan together. Do not make assumptions - ensure I understand and agree with each part before you write it. Only write a phase at a time.
 
