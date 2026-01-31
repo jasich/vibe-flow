@@ -1,4 +1,6 @@
-# vibe-flow
+<p align="center">
+  <img src="logo.jpeg" alt="vibe-flow" width="500">
+</p>
 
 **Stop vibe coding. Start vibe *shipping*.**
 
